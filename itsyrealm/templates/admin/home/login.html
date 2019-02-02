@@ -1,0 +1,10 @@
+{% extends 'admin/home/base.html' %}
+{% block header %}
+	<h1>{% block title %}Login{% endblock %}</h1>
+{% endblock %}
+{% block navbar_items %}
+{% endblock %}
+{% block content %}
+	{{ super() }}
+	{{ wtf.quick_form(form, enctype="multipart/form-data") }}
+{% endblock %}

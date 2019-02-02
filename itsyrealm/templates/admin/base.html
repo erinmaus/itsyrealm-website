@@ -1,0 +1,53 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>{% block title %}{% endblock %} {% block title_suffix %}{% endblock %} - ItsyRealm</title>
+		{% block styles %}
+			<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+		{% endblock %}
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<ul class="nav navbar-nav mr-auto">
+				<a class="navbar-brand" href="url_for('home.index')">
+					<img src="{{ url_for('static', filename='images/logoIcon-small.png') }}" width="30" height="30" class="visible-xs-inline-block visible-sm-inline-block
+					visible-md-inline-block visible-lg-inline-block align-top" alt="">
+					ItsyRealm
+				</a>
+				{% block navbar_items %}
+				<li class="nav-item">
+					<a class="navbar-brand" href="{{ url_for('admin.home.index') }}">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="navbar-brand" href="{{ url_for('admin.photos.index') }}">Photos</a>
+				</li>
+				<li class="nav-item">
+					<a class="navbar-brand" href="{{ url_for('admin.downloads.index') }}">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="navbar-brand" href="{{ url_for('admin.home.logout') }}">Logout</a>
+				</li>
+				{% endblock %}
+			</ul>
+		</nav>
+		<main class="container">
+			{% block header %}{% endblock %}
+			{% for message in get_flashed_messages() %}
+				<div class="alert alert-info alert-primary" role="alert">
+					{{ message }}
+				</div>
+			{% endfor %}
+			<div class="content">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</main>
+		{% block scripts %}
+		<script src="{{ bootstrap_find_resource('jquery.js', cdn='jquery') }}"></script>
+		<script src="{{ bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap') }}"></script>
+		{% endblock %}
+	</body>
+</html>

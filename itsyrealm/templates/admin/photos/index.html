@@ -1,0 +1,39 @@
+{% extends 'admin/photos/base.html' %}
+{% block header %}
+	<h1>{% block title %}Home{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+	{{ super() }}
+
+	{% if photos|length == 0 %}
+		<p><b>There are no photos.</b></p>
+	{% else %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for photo in photos %}
+					<tr>
+						<td>
+							{{ photo.title }}
+						</td>
+						<td>
+							{{ photo.description }}
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('admin.photos.edit', photo_id=photo.id) }}">Edit</a>
+							<a class="btn btn-danger" href="{{ url_for('admin.photos.delete', photo_id=photo.id) }}">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+
+	<a class="btn btn-primary" href="{{ url_for('admin.photos.add') }}">Add Photo</a>
+{% endblock %}
