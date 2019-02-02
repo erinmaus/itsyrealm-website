@@ -38,11 +38,17 @@ def create_app(test_config=None):
 
 	Bootstrap(app)
 
+	import itsyrealm.views.home as home
+	app.register_blueprint(home.bp)
+
 	import itsyrealm.views.admin.home as admin_home
 	import itsyrealm.views.admin.downloads as admin_downloads
 	import itsyrealm.views.admin.photos as admin_photos
 	app.register_blueprint(admin_home.bp)
 	app.register_blueprint(admin_downloads.bp)
 	app.register_blueprint(admin_photos.bp)
+
+	import itsyrealm.views.api.photo as api_photo
+	app.register_blueprint(api_photo.bp)
 
 	return app

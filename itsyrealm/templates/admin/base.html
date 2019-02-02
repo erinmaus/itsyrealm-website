@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>{% block title %}{% endblock %} {% block title_suffix %}{% endblock %} - ItsyRealm</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 		{% block styles %}
 			<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
 		{% endblock %}
@@ -12,7 +13,7 @@
 	<body>
 		<nav class="navbar navbar-default">
 			<ul class="nav navbar-nav mr-auto">
-				<a class="navbar-brand" href="url_for('home.index')">
+				<a class="navbar-brand" href="{{ url_for('home.index') }}">
 					<img src="{{ url_for('static', filename='images/logoIcon-small.png') }}" width="30" height="30" class="visible-xs-inline-block visible-sm-inline-block
 					visible-md-inline-block visible-lg-inline-block align-top" alt="">
 					ItsyRealm

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{% block title %}ItsyRealm{% endblock %}</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<link href="{{ url_for('static', filename='style/reset.css') }}" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Laila:500,700" rel="stylesheet">
+		<link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
+	</head>
+	<body>
+		<main>
+			<div id="logo"></div>
+			<div id="content">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</main>
+		{% block scripts %}
+		{% endblock %}
+	</body>
+</html>

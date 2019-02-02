@@ -1,0 +1,253 @@
+body {
+	font-family: 'Laila', serif;
+	font-size: 24px;
+	line-height: 1.25;
+
+	background: fixed url("/static/images/background.png") center -132px no-repeat;
+}
+
+main {
+	width: 800px;
+
+	margin: 0 auto;
+}
+
+#logo {
+	display: block;
+
+	width: 800px;
+	min-width: 800px !important;
+	height: 300px;
+	min-height: 300px !important;
+
+	background: url("/static/images/logo.png") no-repeat center;
+}
+
+#content {
+	position: relative;
+
+	margin-bottom: 2em;
+
+	padding-left: 128px;
+	padding-top: 96px;
+
+	min-height: 600px !important;
+
+	border: 4px solid black;
+
+	background: url("/static/images/border-topLeft.png") top left no-repeat;
+	background-color: rgba(238, 236, 184, 0.8);
+}
+
+#content:after {
+	pointer-events: none;
+	content: "";
+	position: absolute;
+	top: 320px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: url("/static/images/border-left.png") repeat-y;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+
+	margin-bottom: 1em
+}
+
+p {
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
+.slideshow {
+	margin-left: -32px;
+	margin-bottom: 1em;
+
+	vertical-align: middle;
+}
+
+.slideshow-image {
+	display: inline-block;;
+
+	width: calc(480px - 96px);
+	height: calc(270px - 96px);
+
+	margin: 0 auto;
+}
+
+.slideshow-image-full {
+	position: fixed;
+
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+
+	background-color: rgba(0, 0, 0, 0.9);
+
+	z-index: 1000;
+}
+
+.slideshow-image-full-image {
+	position: fixed;
+
+	top: 5vh;
+	left: 0;
+	right: 0;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	width: auto;
+	height: 90vh;
+
+	z-index: 1000;
+}
+
+.slideshow-image-full-image img {
+	width: auto;
+	height: 90vh;
+}
+
+.slideshow-image-full-title {
+	position: absolute`;
+
+	top: 5vh;
+	left: 5vh;
+
+	color: white;
+
+	font-size: 2.5em;
+	font-weight: bold;
+
+	z-index: 2000;
+}
+
+.slideshow-image-full-description {
+	position: fixed;
+
+	bottom: 5vh;
+	left: 5vh;
+
+	color: white;
+
+	font-size: 2em;
+	font-weight: normal;
+
+	z-index: 2000;
+}
+
+.download-button {
+	position: absolute;
+	display: block;
+
+	top: -64px;
+	right: 32px;
+
+	padding-top: 32px;
+
+	color: white;
+
+	text-align: center;
+
+	width: 348px;
+	min-width: 348px !important;
+	height: 100px;
+	min-height: 100px !important;
+
+	background: url("/static/images/button.png") 0px 0px;
+}
+
+.download-button-version {
+	position: absolute;
+	bottom: 16px;
+	left: 32px;
+
+	font-weight: bold;
+
+	font-size: 0.75em;
+}
+
+.download-button:hover {
+	background: url("/static/images/button.png") 0px -132px;
+}
+
+.download-button:active {
+	background: url("/static/images/button.png") 0px -264px;
+}
+
+.download-button a,
+.download-button a:visited,
+.download-button a:hover,
+.download-button a:active {
+	font-size: 2em;
+	font-weight: bolder;
+	color: white;
+	text-decoration: none;
+	margin: auto auto;
+}
+
+.slideshow-button-left {
+	display: inline-block;
+
+	width: 128px;
+	min-width: 128px !important;
+	height: 128px;
+	min-height: 128px !important;
+
+	background: url("/static/images/slideshowButtons.png") 0px 0px;
+}
+
+.slideshow-button-left:hover {
+	background: url("/static/images/slideshowButtons.png") 0px -132px;
+}
+
+.slideshow-button-left:active {
+	background: url("/static/images/slideshowButtons.png") 0px -264px;
+}
+
+.slideshow-button-right {
+	display: inline-block;
+
+	margin: 16px;
+
+	width: 128px;
+	min-width: 128px !important;
+	height: 128px;
+	min-height: 128px !important;
+
+	background: url("/static/images/slideshowButtons.png") 128px 0px;
+}
+
+.slideshow-button-right:hover {
+	background: url("/static/images/slideshowButtons.png") 128px -132px;
+}
+
+.slideshow-button-right:active {
+	background: url("/static/images/slideshowButtons.png") 128px -264px;
+}
+
+.left {
+	display: inline;
+	float: left;
+}
+
+.right {
+	display: inline;
+	float: right;
+}
+
+.feature {
+	text-align: justify;
+}
+
+.tagline {
+	clear: both;
+
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: bold;
+}
