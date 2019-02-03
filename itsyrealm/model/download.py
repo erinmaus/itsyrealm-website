@@ -20,3 +20,13 @@ class Download(db.Model):
 			return "build"
 		elif type == Download.TYPE_RESOURCE:
 			return "resource"
+
+	def serialize(self):
+		return {
+			'id': self.id,
+			'type': Download.get_type_string(self.type),
+			'platform': self.platform,
+			'version': self.version,
+			'patchNotes': self.patch_notes,
+			'checksum': self.checksum
+		}

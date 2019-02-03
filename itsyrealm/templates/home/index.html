@@ -1,8 +1,8 @@
 {% extends 'home/base.html' %}
 {% block content %}
 	<div class="download-button">
-		<a href="#/">Download!</a>
-		<span class="download-button-version">alpha2019xxxx</span>
+		<a href="{{ url_for('home.download') }}">Download!</a>
+		<span class="download-button-version">{{ latest_version }}</span>
 	</div>
 	<h1>Welcome to ItsyRealm!</h1>
 	<div class="slideshow">

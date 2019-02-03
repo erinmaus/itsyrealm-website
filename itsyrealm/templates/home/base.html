@@ -9,10 +9,13 @@
 	</head>
 	<body>
 		<main>
-			<div id="logo"></div>
+			<a href="/"><div id="logo"></div></a>
 			<div id="content">
 				{% block content %}
 				{% endblock %}
+				<footer>
+					<p>Copyright &copy; <a href="http://aaronbolyard.com">Aaron Bolyard</a> - <a href="https://github.com/aaronbolyard/itsyscape">GitHub</a></p>
+				</footer>
 			</div>
 		</main>
 		{% block scripts %}

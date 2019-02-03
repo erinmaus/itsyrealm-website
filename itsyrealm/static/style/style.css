@@ -12,6 +12,22 @@ main {
 	margin: 0 auto;
 }
 
+a, a:active, a:visited, a:hover {
+	color: #bc5fd3;
+
+	text-decoration: none;
+}
+
+a:active, a:hover {
+	text-shadow: 4px 4px 5px #ffcc00;
+}
+
+li {
+	margin-left: 2em;
+	color: ;
+	list-style-type: disc;
+}
+
 #logo {
 	display: block;
 
@@ -30,6 +46,8 @@ main {
 
 	padding-left: 128px;
 	padding-top: 96px;
+
+	padding-bottom: 5em;
 
 	min-height: 600px !important;
 
@@ -119,33 +137,31 @@ p {
 }
 
 .slideshow-image-full-title {
+	position: relative;
 	display: block;
 
 	margin-left: 2.5vw;
 	margin-top: 2.5vh;
 
-	position: relative;
-
 	margin-top: -5vh;
 	color: white;
 
-	font-size: 2.5em;
+	font-size: 5vh;
 	font-weight: bold;
 
 	z-index: 2000;
 }
 
 .slideshow-image-full-description {
-	display: block;
+	position: fixed;
 
-	margin-left: 2.5vw;
-	margin-top: 2.5vh;
+	left: 2.5vw;
+	bottom: 5vh;
 
-	position: relative;
 
 	color: white;
 
-	font-size: 1.5em;
+	font-size: 2.5vh;
 	font-weight: normal;
 
 	z-index: 2000;
@@ -198,6 +214,7 @@ p {
 	font-weight: bolder;
 	color: white;
 	text-decoration: none;
+	text-shadow: none;
 	margin: auto auto;
 }
 
@@ -261,4 +278,9 @@ p {
 	text-align: center;
 	font-size: 1.5em;
 	font-weight: bold;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
 }

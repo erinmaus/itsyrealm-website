@@ -44,13 +44,14 @@ def edit(download_id):
 	if download:
 		form = DownloadForm()
 		if request.method == 'GET':
-			form.type.data = download.type
+			form.type.data = str(download.type)
 			form.platform.data = download.platform
 			form.version.data = download.version
 			form.patch_notes.data = download.patch_notes
 
 		if form.validate_on_submit():
-			save_download_form(download, form)
+			if form.binary.data:
+				save_download_form(download, form)
 
 			download.type = form.type.data
 			download.platform = form.platform.data
@@ -109,13 +110,14 @@ def delete(download_id):
 		if not download:
 			raise Exception("No download.")
 
-		os.remove(os.join(current_app.instance_path, download.url))
+		os.remove(os.path.join(current_app.instance_path, download.url))
 
 		database.session.delete(download)
 		database.session.commit()
 	
 		flash("Deleted download.")
-	except:
+	except Exception as e:
 		flash("Failed to delete download.")
+		flash(str(e))
 
-	return redirect(url_for("downloads.index"))
+	return redirect(url_for("admin.downloads.index"))

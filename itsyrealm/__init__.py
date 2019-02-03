@@ -49,6 +49,8 @@ def create_app(test_config=None):
 	app.register_blueprint(admin_photos.bp)
 
 	import itsyrealm.views.api.photo as api_photo
+	import itsyrealm.views.api.download as api_download
 	app.register_blueprint(api_photo.bp)
+	app.register_blueprint(api_download.bp)
 
 	return app

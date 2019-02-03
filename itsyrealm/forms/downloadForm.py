@@ -7,7 +7,7 @@ from wtforms.widgets import TextArea
 from itsyrealm.model.download import Download
 
 class DownloadForm(FlaskForm):
-	binary = FileField('Binary', validators=[FileRequired()])
+	binary = FileField('Binary')
 	type = SelectField(
 		'Binary Type',
 		choices=[

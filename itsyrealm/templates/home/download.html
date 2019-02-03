@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+{% block content %}
+	<div class="download-button">
+		<a id="ir-download-link" href="#/">Download!</a>
+		<span id="ir-download-default-platform" class="download-button-version"></span>
+	</div>
+	<h1>Download ItsyRealm!</h1>
+	<p>
+		Click the download link above to download ItsyRealm for your platform.
+	</p>
+	<p>
+		If that's not the right platform, or you want to download it for another one, select from the list below:
+	</p>
+	<ul id="ir-platforms-list"></ul>
+{% endblock %}
+{% block scripts %}
+	{{ super() }}
+	<script src="{{ url_for('static', filename='js/downloads.js') }}"></script>
+{% endblock %}
