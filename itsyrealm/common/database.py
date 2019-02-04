@@ -7,6 +7,7 @@ from itsyrealm.model.main import db
 
 from itsyrealm.model.download import Download
 from itsyrealm.model.photo import Photo
+from itsyrealm.model.release import Release
 from itsyrealm.model.user import User
 
 def get_database():

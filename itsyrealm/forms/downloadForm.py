@@ -8,12 +8,6 @@ from itsyrealm.model.download import Download
 
 class DownloadForm(FlaskForm):
 	binary = FileField('Binary')
-	type = SelectField(
-		'Binary Type',
-		choices=[
-			(str(Download.TYPE_LAUNCHER), 'Launcher'),
-			(str(Download.TYPE_BUILD), 'Build'),
-			(str(Download.TYPE_RESOURCE), 'Resource')], validators=[DataRequired()])
 	platform = SelectField(
 		'Platform',
 		choices=[
@@ -23,6 +17,4 @@ class DownloadForm(FlaskForm):
 			('Linux64', 'Linux64'),
 			('macOS', 'macOS')
 		], validators=[DataRequired()])
-	version = StringField('Version', validators=[DataRequired()])
-	patch_notes = StringField('Patch Notes', validators=[DataRequired()], widget=TextArea())
 	submit = SubmitField()

@@ -32,23 +32,24 @@ function getNicePlatformName(platform) {
 }
 
 function buildLinks(json) {
+	console.log(json);
+
 	var list = document.querySelector("#ir-platforms-list");
-	for (var i = 0; i < json.length; ++i) {
+	for (var i = 0; i < json.downloads.length; ++i) {
 		var listItem = document.createElement("li");
 		var listItemLink = document.createElement("a");
-		listItemLink.innerText = getNicePlatformName(json[i].platform);
-		listItemLink.href = "/api/download/build/get/" + json[i].platform;
+		listItemLink.innerText = getNicePlatformName(json.downloads[i].platform);
+		listItemLink.href = "/api/download/build/get/" + json.downloads[i].platform;
 		listItem.appendChild(listItemLink);
 		list.appendChild(listItem);
 	}
 
 
 	var platform = getPlatform();
-	console.log(platform);
 
 	var gotPlatform = false;
-	for (var i = 0; i < json.length; ++i) {
-		if (json[i].platform === platform) {
+	for (var i = 0; i < json.downloads.length; ++i) {
+		if (json.downloads[i].platform === platform) {
 			var link = document.querySelector("#ir-download-link");
 			link.href = "/api/download/build/get/" + platform;
 
@@ -60,7 +61,7 @@ function buildLinks(json) {
 		}
 	}
 
-	if (!gotPlatform && json.length > 0) {
+	if (!gotPlatform && json.downloads.length > 0) {
 		var link = document.querySelector("#ir-download-link");
 		link.href = "/api/download/build/get/" + json[0].platform;
 

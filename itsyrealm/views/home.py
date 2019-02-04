@@ -5,17 +5,23 @@ from flask import (
 
 bp = Blueprint('home', __name__, url_prefix='/')
 
-from itsyrealm.model.download import Download
+from itsyrealm.model.release import Release
 
 @bp.route('/')
 @bp.route('/home')
 def index():
-	latest = Download.query.order_by(Download.id.desc()).first()
+	latest_version = ""
+	latest = Release.get_latest_version()
+	if latest:
+		latest_version = latest.get_version_string() 
 
-	return render_template("home/index.html", latest_version=latest.version)
+	return render_template("home/index.html", latest_version=latest_version)
 
 @bp.route('/download')
 def download():
-	latest = Download.query.order_by(Download.id.desc()).first()
+	latest_version = ""
+	latest = Release.get_latest_version()
+	if latest:
+		latest_version = latest.get_version_string() 
 
-	return render_template("home/download.html", latest_version=latest.version)
+	return render_template("home/download.html", latest_version=latest_version)
