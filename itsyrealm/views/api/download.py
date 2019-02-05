@@ -7,6 +7,7 @@ from flask import (
 
 bp = Blueprint('api.download', __name__, url_prefix='/api/download')
 
+from itsyrealm.common.database import get_database
 from itsyrealm.model.download import Download
 from itsyrealm.model.release import Release
 
@@ -43,7 +44,7 @@ def index(download_type, version=None):
 
 @bp.route('/<string:download_type>/get/<string:platform_id>')
 @bp.route('/<string:download_type>/get/<string:platform_id>/<string:version>')
-def view_full(download_type, platform_id, version=None):
+def get(download_type, platform_id, version=None):
 	download_type = download_type_to_enum(download_type)
 	if not download_type:
 		abort(404)
@@ -62,7 +63,15 @@ def view_full(download_type, platform_id, version=None):
 
 	for download in release.downloads:
 		if download.platform == platform_id:
-			return send_file(os.path.join(current_app.instance_path, download.url), as_attachment=True, attachment_filename="itsyrealm.zip")
-			
+			if not download.num_downloads:
+				download.num_downloads = 1
+			else:
+				download.num_downloads += 1
 
+			db = get_database()
+			db.session.add(download)
+			db.session.commit()
+
+			return send_file(os.path.join(current_app.instance_path, download.url), cache_timeout=0, as_attachment=True, attachment_filename="itsyrealm.zip")
+			
 	abort(404)

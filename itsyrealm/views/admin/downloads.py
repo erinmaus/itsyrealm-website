@@ -126,7 +126,7 @@ def edit_download(download_id):
 
 			flash("Download updated.")
 
-			return redirect(url_for("admin.downloads.edit_release", release_id=download_id.release_id))
+			return redirect(url_for("admin.downloads.edit_release", release_id=download.release_id))
 
 		return render_template("admin/downloads/edit_download.html", download=download, form=form)
 

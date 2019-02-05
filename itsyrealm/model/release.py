@@ -65,7 +65,7 @@ class Release(db.Model):
 
 			if len(suffix) == 2:
 				revision = int(suffix[0])
-				suffix = suffix[1].lower()
+				tag = suffix[1].lower()
 
 		return major, minor, revision, tag
 
