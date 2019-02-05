@@ -4,6 +4,7 @@ body {
 	line-height: 1.25;
 
 	background: fixed url("/static/images/background.png") center -132px no-repeat;
+	background-size: cover;
 }
 
 main {
@@ -158,8 +159,8 @@ p {
 	left: 2.5vw;
 	bottom: 5vh;
 
-
 	color: white;
+	text-shadow: 2px 2px 8px black;
 
 	font-size: 2.5vh;
 	font-weight: normal;
