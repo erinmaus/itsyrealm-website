@@ -69,16 +69,17 @@ class Release(db.Model):
 
 		return major, minor, revision, tag
 
-	def get_latest_version():
-		return Release.query.order_by(
+	def get_latest_version(type):
+		return Release.query.filter_by(type=type).order_by(
 			Release.version_major.desc(),
 			Release.version_minor.desc(),
 			Release.version_revision.desc(),
 			Release.version_tag.desc()).first()
 
-	def get_version(version):
+	def get_version(type, version):
 		major, minor, revision, tag = Release.parse_version_string(version)
 		return Release.query.filter_by(
+			type=type,
 			version_major=major,
 			version_minor=minor,
 			version_revision=revision,

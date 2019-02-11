@@ -11,7 +11,7 @@ from itsyrealm.model.release import Release
 @bp.route('/home')
 def index():
 	latest_version = ""
-	latest = Release.get_latest_version()
+	latest = Release.get_latest_version(Release.TYPE_BUILD)
 	if latest:
 		latest_version = latest.get_version_string() 
 
@@ -20,7 +20,7 @@ def index():
 @bp.route('/download')
 def download():
 	latest_version = ""
-	latest = Release.get_latest_version()
+	latest = Release.get_latest_version(Release.TYPE_BUILD)
 	if latest:
 		latest_version = latest.get_version_string() 
 

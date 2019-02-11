@@ -25,15 +25,15 @@ def download_type_to_enum(value):
 @bp.route('/<string:download_type>/version/<string:version>')
 def index(download_type, version=None):
 	download_type = download_type_to_enum(download_type)
-	if not download_type:
+	if download_type == None:
 		abort(404)
 
 	latest = None
 	if not version:
-		latest = Release.get_latest_version()
+		latest = Release.get_latest_version(download_type)
 	else:
 		try:
-			latest = Release.get_version(version)
+			latest = Release.get_version(download_type, version)
 		except:
 			pass
 		
@@ -46,20 +46,28 @@ def index(download_type, version=None):
 @bp.route('/<string:download_type>/get/<string:platform_id>/<string:version>')
 def get(download_type, platform_id, version=None):
 	download_type = download_type_to_enum(download_type)
-	if not download_type:
+	if download_type == None:
 		abort(404)
 
 	release = None
 	if not version:
-		release = Release.get_latest_version()
+		release = Release.get_latest_version(download_type)
 	else:
 		try:
-			release = Release.get_version(version)
+			release = Release.get_version(download_type, version)
 		except:
 			pass
 
 	if not release:
 		abort(404)
+
+	filename = None
+	if download_type == Release.TYPE_LAUNCHER:
+		filename = "launcher.exe"
+	elif download_type == Release.TYPE_BUILD:
+		filename = "itsyrealm.zip"
+	elif download_type == Release.TYPE_RESOURCE:
+		filename = "itsyrealm.love"
 
 	for download in release.downloads:
 		if download.platform == platform_id:
@@ -72,6 +80,6 @@ def get(download_type, platform_id, version=None):
 			db.session.add(download)
 			db.session.commit()
 
-			return send_file(os.path.join(current_app.instance_path, download.url), cache_timeout=0, as_attachment=True, attachment_filename="itsyrealm.zip")
+			return send_file(os.path.join(current_app.instance_path, download.url), cache_timeout=0, as_attachment=True, attachment_filename=filename)
 			
 	abort(404)
