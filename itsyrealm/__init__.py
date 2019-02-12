@@ -13,7 +13,9 @@ def create_app(test_config=None):
 	app = Flask(__name__, instance_relative_config=True)
 	app.config.from_mapping(
 		SQLALCHEMY_TRACK_MODIFICATIONS=False,
-		SQLALCHEMY_COMMIT_ON_TEARDOWN=True
+		SQLALCHEMY_COMMIT_ON_TEARDOWN=True,
+		SECRET_KEY=os.environ.get('SECRET_KEY', None),
+		SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI', None),
 	)
 
 	if test_config is None:
