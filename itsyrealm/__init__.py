@@ -12,6 +12,7 @@ def make_directories(path):
 def create_app(test_config=None):
 	app = Flask(__name__, instance_relative_config=True)
 	app.config.from_mapping(
+		MAX_CONTENT_LENGTH=128 * 1024 * 1024,
 		SQLALCHEMY_TRACK_MODIFICATIONS=False,
 		SQLALCHEMY_COMMIT_ON_TEARDOWN=True,
 		SECRET_KEY=os.environ.get('SECRET_KEY', None),
