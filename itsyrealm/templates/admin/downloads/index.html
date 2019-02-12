@@ -1,0 +1,46 @@
+{% extends 'admin/downloads/base.html' %}
+{% block header %}
+	<h1>{% block title %}Home{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+	{{ super() }}
+
+	{% if releases|length == 0 %}
+		<p><b>There are no releases.</b></p>
+	{% else %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Version</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for release in releases %}
+					<tr>
+						<td>
+							{% if release.type == 0 %}
+								Launcher
+							{% elif release.type == 1 %}
+								Build
+							{% elif release.type == 2 %}
+								Resource
+							{% endif %}
+						</td>
+						<td>
+							{{ release.get_version_string() }}
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('admin.downloads.edit_release', release_id=release.id) }}">Edit</a>
+							<a class="btn btn-primary" href="{{ url_for('admin.downloads.add_download', release_id=release.id) }}">Add Download</a>
+							<a class="btn btn-danger" href="{{ url_for('admin.downloads.delete_release', release_id=release.id) }}">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+
+	<a class="btn btn-primary" href="{{ url_for('admin.downloads.add_release') }}">Add Release</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'admin/downloads/base.html' %}
+{% block header %}
+	<h1>{% block title %}Edit Release{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+	{{ super() }}
+	{{ wtf.quick_form(form) }}
+	<hr>
+
+	{% if release.downloads|length == 0 %}
+		<p><b>There are no downloads.</b></p>
+	{% else %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Platform</th>
+					<th>Downloads</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for download in release.downloads %}
+					<tr>
+						<td>
+							{{ download.platform }}
+						</td>
+						<td>
+							{{ download.num_downloads }}
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('admin.downloads.edit_download', download_id=download.id) }}">Edit</a>
+							<a class="btn btn-danger" href="{{ url_for('admin.downloads.delete_download', download_id=download.id) }}">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+	<a class="btn btn-primary" href="{{ url_for('admin.downloads.add_download', release_id=release.id) }}">Add Download</a>
+{% endblock %}
