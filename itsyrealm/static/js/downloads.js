@@ -1,5 +1,5 @@
 function getPlatform() {
-	var info = window.navigator.oscpu;
+	var info = window.navigator.userAgent;
 
 	if (info.indexOf("Win64") !== -1 || info.indexOf("Win32") !== -1) {
 		return "Win64";
