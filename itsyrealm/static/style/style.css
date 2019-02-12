@@ -4,6 +4,7 @@ body {
 	line-height: 1.25;
 
 	background: fixed url("/static/images/background.png") center no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 }
 
