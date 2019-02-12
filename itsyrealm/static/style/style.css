@@ -29,6 +29,10 @@ li {
 	list-style-type: disc;
 }
 
+b {
+	font-weight: bold;
+}
+
 #logo {
 	display: block;
 
@@ -284,4 +288,18 @@ p {
 footer {
 	position: absolute;
 	bottom: 0;
+}
+
+footer p {
+	margin: 0;
+	display: inline-block;
+}
+
+footer ul {
+	display: inline-block;
+}
+
+footer ul li {
+	margin: 0;
+	display: inline-block;
 }

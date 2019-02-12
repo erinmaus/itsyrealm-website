@@ -28,7 +28,10 @@ def create_app(test_config=None):
 	make_directories(os.path.join(app.instance_path, "downloads", "resource"))
 	make_directories(os.path.join(app.instance_path, "downloads", "build"))
 
-	app.config.from_pyfile("settings.cfg")
+	try:
+		app.config.from_pyfile("settings.cfg")
+	except:
+		pass
 
 	from itsyrealm.common.database import init_app as init_database
 	init_database(app)

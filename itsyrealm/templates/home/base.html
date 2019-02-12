@@ -5,6 +5,7 @@
 		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 		<link href="{{ url_for('static', filename='style/reset.css') }}" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Laila:500,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
 	</head>
 	<body>
@@ -14,7 +15,15 @@
 				{% block content %}
 				{% endblock %}
 				<footer>
-					<p>Copyright &copy; <a href="http://aaronbolyard.com">Aaron Bolyard</a> - <a href="https://github.com/aaronbolyard/itsyscape">GitHub</a></p>
+					<p>
+						Copyright &copy; <a href="http://aaronbolyard.com">Aaron Bolyard</a> - <a href="https://github.com/aaronbolyard/itsyscape">GitHub</a>
+					</p>
+					<ul>
+						<li>- <a href="https://facebook.com/ItsyRealm" class="fab fa-facebook-f"></a></li>
+						<li>- <a href="https://twitter.com/ItsyRealm" class="fab fa-twitter"></a></li>
+						<li>- <a href="https://www.instagram.com/itsyrealm/" class="fab fa-instagram"></a></li>
+						<li>- <a href="https://discord.gg/xUSkF9n" class="fab fa-discord"></a></li>
+					</ul>
 				</footer>
 			</div>
 		</main>
