@@ -2,7 +2,7 @@ var Slideshow = [];
 var SlideshowIndex = 0;
 var SlideshowInterval = null;
 var FullScreenElement = null;
-var SLIDESHOW_SPEED = 2000;
+var SLIDESHOW_SPEED = 4000;
 
 function closeSlide() {
 	if (FullScreenElement) {
