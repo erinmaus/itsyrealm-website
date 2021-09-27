@@ -1,43 +1,37 @@
 {% extends 'home/base.html' %}
 {% block content %}
-	<div class="download-button">
-		<a href="{{ url_for('home.download') }}">Download!</a>
-		<span class="download-button-version">{{ latest_version }}</span>
-	</div>
-	<h1>Welcome to ItsyRealm!</h1>
-	<div class="slideshow">
-		<a href="#/" id="ir-slideshow-prev-button" class="slideshow-button-left"></a>
-		<div id="ir-slideshow-image" class="slideshow-image"></div>
-		<a href="#/" id="ir-slideshow-next-button" class="slideshow-button-right"></a>
-	</div>
-	<p>
-		In ItsyRealm, you're on an awesome quest to discover the secrets of a necromancer god only known as the Empty King! Along your way, you'll...
-	</p>
-	<div class="feature">
-		<img class="left" alt="Three scary monsters." src="{{ url_for('static', filename='images/creeps.png') }}" width="320px" height="192px">
-		<p class="left">
-			Have to think on your feet using staff, sword, and bow to fight mythical monsters and eldritch abominations...
-		</p>
+	<div id="call-to-action">
+		<p>Fight, explore, craft, and quest your way through this single-player cutesy RPG.</p>
+		<div class="gif">
+			<img src="{{ url_for('static', filename='images/gif.gif') }}" width="320" height="320" alt="ItsyRealm cute GIF">
+		</div>
+		<div class="hook">
+			<ul>
+				<li><a href="https://facebook.com/ItsyRealm" class="fab fa-facebook"></a></li>
+				<li><a href="https://twitter.com/ItsyRealm" class="fab fa-twitter"></a></li>
+				<li><a href="https://www.instagram.com/itsyrealm/" class="fab fa-instagram"></a></li>
+				<li><a href="https://discord.gg/xUSkF9n" class="fab fa-discord"></a></li>
+				<li><a href="https://github.com/erinmaus/itsyscape" class="fab fa-github"></a></li>
+			</ul>
+			<a href="https://store.steampowered.com/app/1662510" class="button">Play Now!</a>
+		</div>
 	</div>
 	<div class="feature">
-		<img class="right" alt="Three heroes wearing cool equipment." src="{{ url_for('static', filename='images/equipment.png') }}" width="320px" height="192px">
-		<p class="right">
-			Use 21 skills and counting to gather and craft powerful equipment from dangerous dungeons, teeming forests, ancient ruins, the open sea, and more...
-		</p>
+		<p>In ItsyRealm, you're on an awesome quest to discover the secrets of a necromancer god only known as the Empty King.</p>
 	</div>
 	<div class="feature">
-		<img class="left" alt="Three adventurers needing help." src="{{ url_for('static', filename='images/heroes.png') }}" width="320px" height="192px">
-		<p class="left">
-			Help a bunch of like-minded adventurers achieve their own victories...
-		</p>
+		<img src="{{ url_for('static', filename='images/creeps.png') }}" width="320" height="192" alt="ItsyRealm enemies">
+		<p>Along your way, you'll have to think on your feet using staff, sword, and bow to fight mythical monsters and eldritch abominations!</p>
 	</div>
-	<div class="tagline">
-		<p>
-			And should you fail, the world will succumb to the ruin of the Old Ones.
-		</p>
+	<div class="feature">
+		<img src="{{ url_for('static', filename='images/equipment.png') }}" width="320" height="192" alt="ItsyRealm equipment">
+		<p>Use 21 skills to gather and craft powerful equipment from dangerous dungeons, teeming forests, ancient ruins, the open sea, and more!</p>
 	</div>
-{% endblock %}
-{% block scripts %}
-	{{ super() }}
-	<script src="{{ url_for('static', filename='js/slideshow.js') }}"></script>
+	<div class="feature">
+		<img src="{{ url_for('static', filename='images/heroes.png') }}" width="320" height="224" alt="ItsyRealm heroes">
+		<p>And help a bunch of like-minded adventurers achieve their own victories!</p>
+	</div>
+	<div class="feature">
+		<p>Should you fail, the four Old Ones will succeed to tear the very fabric of reality apart...</p>
+	</div>
 {% endblock %}

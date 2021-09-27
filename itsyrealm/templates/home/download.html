@@ -1,25 +1,5 @@
 {% extends 'home/base.html' %}
 {% block content %}
-	<div class="download-button">
-		<a id="ir-download-link" href="#/">Download!</a>
-		<span id="ir-download-default-platform" class="download-button-version"></span>
-	</div>
-	<h1>{% block title %}Download ItsyRealm{% endblock %}!</h1>
-	<p>
-		Click the download link above to download ItsyRealm for your platform.
-	</p>
-	<p>
-		Please keep in mind ItsyRealm is currently in alpha. There may be bugs--even game breaking bugs. If you find any, feel free to report them on the <a href="https://github.com/aaronbolyard/itsyscape/issues">GitHub project page</a>!
-	</p>
-	<p>
-		<b>Windows users</b>: Please note the launcher requires the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30653">.NET Framework 4.5</a> to run. The game also requires the latest <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">Visual C++ runtime</a>. These are probably installed on up-to-date Windows environments.
-	</p>
-	<p>
-		If that's not the right platform, or you want to download it for another one, select from the list below:
-	</p>
-	<ul id="ir-platforms-list"></ul>
-{% endblock %}
-{% block scripts %}
-	{{ super() }}
-	<script src="{{ url_for('static', filename='js/downloads.js') }}"></script>
+	<p>ItsyRealm is now only available on Steam.</p>
+	<p>You can visit the <a href="https://store.steampowered.com/app/1662510">Steam Store page</a> and try it out!</p>
 {% endblock %}

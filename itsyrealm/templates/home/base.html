@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="ItsyRealm, the 3D RPG where you fight, skill, and explore in a cute medieval Lovecraftian world filled with terrors unimaginable. Also there's dragons." />
+		<meta name="description" content="Explore, craft, and fight your way past cute horrors to discover the secrets of The Empty King in the zany world of ItsyRealm." />
 		<title>{% block title %}ItsyRealm{% endblock %}</title>
 		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 		<link href="{{ url_for('static', filename='style/reset.css') }}" rel="stylesheet">
@@ -11,26 +11,17 @@
 		<link href="{{ url_for('static', filename='style/style.css') }}" rel="stylesheet">
 	</head>
 	<body>
+		<header>
+			<div id="itsyrealm-logo" />
+		</header>
 		<main>
-			<a href="/"><div id="logo"></div></a>
-			<div id="content">
-				{% block content %}
-				{% endblock %}
-				<footer>
-					<p>
-						Copyright &copy; <a href="http://erinmaus.com">Erin Maus</a>
-					</p>
-					<ul>
-						<li><a href="https://github.com/erinmaus/itsyscape" class="fab fa-github"></a></li>
-						<li><a href="https://facebook.com/ItsyRealm" class="fab fa-facebook"></a></li>
-						<li><a href="https://twitter.com/ItsyRealm" class="fab fa-twitter"></a></li>
-						<li><a href="https://www.instagram.com/itsyrealm/" class="fab fa-instagram"></a></li>
-						<li><a href="https://discord.gg/xUSkF9n" class="fab fa-discord"></a></li>
-					</ul>
-				</footer>
-			</div>
+			{% block content %}
+			{% endblock %}
+			<footer>
+				<p>
+					Copyright &copy; <a href="http://erinmaus.com">Erin Maus</a>
+				</p>
+			</footer>
 		</main>
-		{% block scripts %}
-		{% endblock %}
 	</body>
 </html>
