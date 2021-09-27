@@ -10,7 +10,7 @@ from itsyrealm.model.photo import Photo
 from itsyrealm.forms.photoForm import PhotoForm
 from itsyrealm.common.database import get_database
 
-bp = Blueprint('admin.photos', __name__, url_prefix='/admin/photos')
+bp = Blueprint('admin_photos', __name__, url_prefix='/admin/photos')
 
 @bp.route('/')
 @login_required
@@ -73,7 +73,7 @@ def edit(photo_id):
 
 	else:
 		flash("Photo not found.")
-		return redirect(url_for("admin.photos.index"))
+		return redirect(url_for("admin_photos.index"))
 
 @bp.route('/photo/add', methods=('GET', 'POST'))
 @login_required
@@ -97,7 +97,7 @@ def add():
 
 			flash("Photo added.")
 
-			return redirect(url_for("admin.photos.index"))
+			return redirect(url_for("admin_photos.index"))
 	elif request.method == 'POST':
 		for field_name in form.errors:
 			for field_error in form[field_name].errors:

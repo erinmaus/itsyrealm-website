@@ -5,7 +5,7 @@ from flask import (
     request, session, url_for, jsonify, send_file, abort
 )
 
-bp = Blueprint('api.download', __name__, url_prefix='/api/download')
+bp = Blueprint('api_download', __name__, url_prefix='/api/download')
 
 from itsyrealm.common.database import get_database
 from itsyrealm.model.download import Download

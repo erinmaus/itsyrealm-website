@@ -24,7 +24,7 @@
 		</div>
 		<div class="form-group row">
 			<button type="submit" class="btn btn-primary">Submit</button>
-			<a class="btn btn-danger" href="{{ url_for('admin.photos.delete', photo_id=photo.id) }}">Delete</a>
+			<a class="btn btn-danger" href="{{ url_for('admin_photos.delete', photo_id=photo.id) }}">Delete</a>
 		</div>
 	</form>
 {% endblock %}

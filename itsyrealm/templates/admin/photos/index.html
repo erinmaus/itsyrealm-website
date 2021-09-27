@@ -26,8 +26,8 @@
 							{{ photo.description }}
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ url_for('admin.photos.edit', photo_id=photo.id) }}">Edit</a>
-							<a class="btn btn-danger" href="{{ url_for('admin.photos.delete', photo_id=photo.id) }}">Delete</a>
+							<a class="btn btn-primary" href="{{ url_for('admin_photos.edit', photo_id=photo.id) }}">Edit</a>
+							<a class="btn btn-danger" href="{{ url_for('admin_photos.delete', photo_id=photo.id) }}">Delete</a>
 						</td>
 					</tr>
 				{% endfor %}
@@ -35,5 +35,5 @@
 		</table>
 	{% endif %}
 
-	<a class="btn btn-primary" href="{{ url_for('admin.photos.add') }}">Add Photo</a>
+	<a class="btn btn-primary" href="{{ url_for('admin_photos.add') }}">Add Photo</a>
 {% endblock %}

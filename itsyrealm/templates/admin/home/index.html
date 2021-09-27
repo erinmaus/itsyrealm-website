@@ -8,5 +8,5 @@
 	<h2>Welcome, {{ user.get_user().username }}.</h2>
 	<p>From here, you can adminstrate the ItsyRealm website.</p>
 	<h3>Quick Actions</h3>
-	<a class="btn btn-primary" href="{{ url_for('admin.home.password') }}">Change Password</a>
+	<a class="btn btn-primary" href="{{ url_for('admin_home.password') }}">Change Password</a>
 {% endblock %}

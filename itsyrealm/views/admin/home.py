@@ -14,7 +14,7 @@ from itsyrealm.forms.loginForm import LoginForm
 from itsyrealm.forms.changePasswordForm import ChangePasswordForm
 from itsyrealm.model.user import User
 
-bp = Blueprint('admin.home', __name__, url_prefix='/admin')
+bp = Blueprint('admin_home', __name__, url_prefix='/admin')
 
 @bp.route('/')
 @login_required
@@ -28,7 +28,7 @@ def logout():
 
 	flash("You have been logged out.")
 
-	return redirect(url_for("admin.home.login"))
+	return redirect(url_for("admin_home.login"))
 
 @bp.route('/password', methods=('GET', 'POST'))
 @login_required
@@ -57,7 +57,7 @@ def login():
 		user = User.query.filter_by(username=form.username.data).first()
 		if user and check_password_hash(user.password_hash, form.password.data):
 			login_user(user)
-			return redirect(url_for("admin.home.index"))
+			return redirect(url_for("admin_home.index"))
 
 		flash("Invalid username and/or password.")
 

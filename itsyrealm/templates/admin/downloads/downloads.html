@@ -26,8 +26,8 @@
 							{{ download.checksum }}
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ url_for('admin.downloads.edit_download', download_id=download.id) }}">Edit</a>
-							<a class="btn btn-danger" href="{{ url_for('admin.downloads.delete_download', download_id=download.id) }}">Delete</a>
+							<a class="btn btn-primary" href="{{ url_for('admin_downloads.edit_download', download_id=download.id) }}">Edit</a>
+							<a class="btn btn-danger" href="{{ url_for('admin_downloads.delete_download', download_id=download.id) }}">Delete</a>
 						</td>
 					</tr>
 				{% endfor %}
@@ -35,5 +35,5 @@
 		</table>
 	{% endif %}
 
-	<a class="btn btn-primary" href="{{ url_for('admin.downloads.add_download') }}">Add Download</a>
+	<a class="btn btn-primary" href="{{ url_for('admin_downloads.add_download') }}">Add Download</a>
 {% endblock %}

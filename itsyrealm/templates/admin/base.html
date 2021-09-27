@@ -20,16 +20,16 @@
 				</a>
 				{% block navbar_items %}
 				<li class="nav-item">
-					<a class="navbar-brand" href="{{ url_for('admin.home.index') }}">Home</a>
+					<a class="navbar-brand" href="{{ url_for('admin_home.index') }}">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="navbar-brand" href="{{ url_for('admin.photos.index') }}">Photos</a>
+					<a class="navbar-brand" href="{{ url_for('admin_photos.index') }}">Photos</a>
 				</li>
 				<li class="nav-item">
-					<a class="navbar-brand" href="{{ url_for('admin.downloads.index') }}">Downloads</a>
+					<a class="navbar-brand" href="{{ url_for('admin_downloads.index') }}">Downloads</a>
 				</li>
 				<li class="nav-item">
-					<a class="navbar-brand" href="{{ url_for('admin.home.logout') }}">Logout</a>
+					<a class="navbar-brand" href="{{ url_for('admin_home.logout') }}">Logout</a>
 				</li>
 				{% endblock %}
 			</ul>

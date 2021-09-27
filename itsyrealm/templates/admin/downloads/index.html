@@ -32,9 +32,9 @@
 							{{ release.get_version_string() }}
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ url_for('admin.downloads.edit_release', release_id=release.id) }}">Edit</a>
-							<a class="btn btn-primary" href="{{ url_for('admin.downloads.add_download', release_id=release.id) }}">Add Download</a>
-							<a class="btn btn-danger" href="{{ url_for('admin.downloads.delete_release', release_id=release.id) }}">Delete</a>
+							<a class="btn btn-primary" href="{{ url_for('admin_downloads.edit_release', release_id=release.id) }}">Edit</a>
+							<a class="btn btn-primary" href="{{ url_for('admin_downloads.add_download', release_id=release.id) }}">Add Download</a>
+							<a class="btn btn-danger" href="{{ url_for('admin_downloads.delete_release', release_id=release.id) }}">Delete</a>
 						</td>
 					</tr>
 				{% endfor %}
@@ -42,5 +42,5 @@
 		</table>
 	{% endif %}
 
-	<a class="btn btn-primary" href="{{ url_for('admin.downloads.add_release') }}">Add Release</a>
+	<a class="btn btn-primary" href="{{ url_for('admin_downloads.add_release') }}">Add Release</a>
 {% endblock %}

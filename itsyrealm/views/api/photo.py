@@ -5,7 +5,7 @@ from flask import (
     request, session, url_for, jsonify, send_file, abort
 )
 
-bp = Blueprint('api.photo', __name__, url_prefix='/api/photo')
+bp = Blueprint('api_photo', __name__, url_prefix='/api/photo')
 
 from itsyrealm.model.photo import Photo
 
