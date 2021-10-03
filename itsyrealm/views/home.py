@@ -25,3 +25,7 @@ def download():
 		latest_version = latest.get_version_string() 
 
 	return render_template("home/download.html", latest_version=latest_version)
+
+@bp.route('/presskit')
+def presskit():
+	return render_template("home/presskit.html")

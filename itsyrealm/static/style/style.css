@@ -170,6 +170,60 @@ main .gif::after {
 	border-radius: 6px;
 }
 
+#presskit {
+	display: flex;
+	flex-direction: column;	
+	font-size: 1.5rem;
+}
+
+#presskit a, #presskit a:active, #presskit a:visited, #presskit a:hover {
+	font-size: 1.5rem;
+}
+
+#presskit > ol {
+	margin-left: 1rem;
+	min-width: 16rem;
+}
+
+#presskit .presskit-content {
+	margin-left: 1rem;
+}
+
+#presskit a {
+	font-size: 1.5rem;
+}
+
+#presskit h2 {
+	margin-top: 1rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+#presskit h3 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.factsheet {
+	margin-top: 1rem;
+}
+
+.factsheet .fact {
+	margin-top: 1rem;
+}
+
+.presskit-content ol {
+	margin-left: 3rem;
+}
+
+.presskit-content li {
+	list-style-type: disc;
+}
+
+.presskit-content img {
+	width: 350px;
+}
+
 @media(min-width: 600px) {
 	main {
 		padding:  2rem;
@@ -231,6 +285,14 @@ main .gif::after {
 
 	header #itsyrealm-logo {
 		height:  calc(100% - 10rem);
+	}
+
+	#presskit {
+		flex-direction: row;
+	}
+
+	#presskit h2:nth-child(1) {
+		margin-top: 0;
 	}
 }
 
