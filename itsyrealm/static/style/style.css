@@ -140,10 +140,6 @@ main .feature:last-of-type {
 	display: inline;
 }
 
-footer p {
-	text-align: right;
-}
-
 main .gif img {
 	width: 320px;
 	height: 214px;
@@ -222,6 +218,18 @@ main .gif::after {
 
 .presskit-content img {
 	width: 350px;
+}
+
+footer {
+	margin-top: 1rem;
+}
+
+footer p {
+	text-align: right;
+}
+
+footer a, footer a:hover, footer a:active, footer a:visited, footer p {
+	font-size: 1.5rem;
 }
 
 @media(min-width: 600px) {
