@@ -17,14 +17,13 @@ def index():
 
 	return render_template("home/index.html", latest_version=latest_version)
 
+@bp.route('/play')
+def play():
+	return redirect(url_for('api_download.get', download_type='launcher', platform_id='Win64'))
+
 @bp.route('/download')
 def download():
-	latest_version = ""
-	latest = Release.get_latest_version(Release.TYPE_BUILD)
-	if latest:
-		latest_version = latest.get_version_string() 
-
-	return render_template("home/download.html", latest_version=latest_version)
+	return redirect(url_for('home.play'))
 
 @bp.route('/presskit')
 def presskit():
