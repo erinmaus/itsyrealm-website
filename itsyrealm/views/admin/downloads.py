@@ -42,7 +42,7 @@ def add_release():
 
 		flash("Release added.")
 
-		return redirect(url_for("admin_downloads.edit_release",release_id=release.id))
+		return redirect(url_for("admin_downloads.edit_release",release_id=release.id, _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 	return render_template("admin/downloads/add_release.html", form=form)
 
@@ -52,7 +52,7 @@ def edit_release(release_id):
 	release = Release.query.filter_by(id=release_id).first()
 	if not release:
 		flash("Invalid release.")
-		return redirect(url_for("admin_downloads.index"))
+		return redirect(url_for("admin_downloads.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 	form = ReleaseForm()
 	if request.method == 'GET':
@@ -126,13 +126,13 @@ def edit_download(download_id):
 
 			flash("Download updated.")
 
-			return redirect(url_for("admin_downloads.edit_release", release_id=download.release_id))
+			return redirect(url_for("admin_downloads.edit_release", release_id=download.release_id, _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 		return render_template("admin/downloads/edit_download.html", download=download, form=form)
 
 	else:
 		flash("Download not found.")
-		return redirect(url_for("admin_downloads.index"))
+		return redirect(url_for("admin_downloads.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 @bp.route('/download/add/<int:release_id>', methods=('GET', 'POST'))
 @login_required
@@ -140,7 +140,7 @@ def add_download(release_id):
 	release = Release.query.filter_by(id=release_id).first()
 	if not release:
 		flash("Invalid release.")
-		return redirect(url_for("admin_downloads.index"))
+		return redirect(url_for("admin_downloads.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 	form = DownloadForm()
 	if form.validate_on_submit():
@@ -162,7 +162,7 @@ def add_download(release_id):
 
 			flash("Download added.")
 
-			return redirect(url_for("admin_downloads.edit_release", release_id=release_id))
+			return redirect(url_for("admin_downloads.edit_release", release_id=release_id, _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 	return render_template("admin/downloads/add_download.html", form=form)
 
@@ -184,9 +184,9 @@ def delete_download(download_id):
 		flash("Failed to delete download: " + str(e))
 
 	if download:
-		return redirect(url_for("admin_releases.edit_release", release_id=download_id.release_id))
+		return redirect(url_for("admin_releases.edit_release", release_id=download_id.release_id, _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 	else:
-		return redirect(url_for("admin_downloads.index"))
+		return redirect(url_for("admin_downloads.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 @bp.route("/release/delete/<int:release_id>")
 @login_required
@@ -208,4 +208,4 @@ def delete_release(release_id):
 	else:
 		flash("Failed to delete release.")
 
-	return redirect(url_for("admin_downloads.index"))
+	return redirect(url_for("admin_downloads.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))

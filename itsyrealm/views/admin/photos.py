@@ -73,7 +73,7 @@ def edit(photo_id):
 
 	else:
 		flash("Photo not found.")
-		return redirect(url_for("admin_photos.index"))
+		return redirect(url_for("admin_photos.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 @bp.route('/photo/add', methods=('GET', 'POST'))
 @login_required
@@ -97,7 +97,7 @@ def add():
 
 			flash("Photo added.")
 
-			return redirect(url_for("admin_photos.index"))
+			return redirect(url_for("admin_photos.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 	elif request.method == 'POST':
 		for field_name in form.errors:
 			for field_error in form[field_name].errors:
@@ -125,4 +125,4 @@ def delete(photo_id):
 	except:
 		flash("Failed to delete photo.")
 
-	return redirect(url_for("photos.index"))
+	return redirect(url_for("photos.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))

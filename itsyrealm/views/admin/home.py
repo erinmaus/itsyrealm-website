@@ -28,7 +28,7 @@ def logout():
 
 	flash("You have been logged out.")
 
-	return redirect(url_for("admin_home.login"))
+	return redirect(url_for("admin_home.login", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 @bp.route('/password', methods=('GET', 'POST'))
 @login_required
@@ -57,7 +57,7 @@ def login():
 		user = User.query.filter_by(username=form.username.data).first()
 		if user and check_password_hash(user.password_hash, form.password.data):
 			login_user(user)
-			return redirect(url_for("admin_home.index"))
+			return redirect(url_for("admin_home.index", _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 		flash("Invalid username and/or password.")
 

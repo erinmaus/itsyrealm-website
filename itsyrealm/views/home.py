@@ -19,11 +19,11 @@ def index():
 
 @bp.route('/play')
 def play():
-	return redirect(url_for('api_download.get', download_type='launcher', platform_id='Win64'))
+	return redirect(url_for('api_download.get', download_type='launcher', platform_id='Win64', _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 @bp.route('/download')
 def download():
-	return redirect(url_for('home.play'))
+	return redirect(url_for('home.play', _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
 
 @bp.route('/presskit')
 def presskit():

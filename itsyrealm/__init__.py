@@ -17,6 +17,7 @@ def create_app(test_config=None):
 		SQLALCHEMY_COMMIT_ON_TEARDOWN=True,
 		SECRET_KEY=os.environ.get('SECRET_KEY', None),
 		SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI', None),
+		PREFERRED_URL_SCHEME=os.environ.get('PREFERRED_URL_SCHEME', default='https')
 	)
 
 	if test_config is None:
