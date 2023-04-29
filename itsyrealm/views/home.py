@@ -19,7 +19,7 @@ def index():
 
 @bp.route('/play')
 def play():
-	return redirect(url_for('api_download.get', download_type='launcher', platform_id='Win64', _external=True, _scheme=current_app.config.get('PREFERRED_URL_SCHEME')))
+	return redirect("https://store.steampowered.com/app/1662510", code=301)
 
 @bp.route('/download')
 def download():
